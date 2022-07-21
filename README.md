@@ -19,7 +19,8 @@ Adapter1_sequence
 Adapter2_sequence
 ```
 For our particular type of adapter (non-internal 5'), an `X` must precede each adapter sequence. For other types of adapters, check the [Cutadapt user guide](https://cutadapt.readthedocs.io/en/stable/guide.html#adapter-types).  
-Furthermore, each adapter has a fixed number of N bases (from 2 to 4) ligated to the 5' end, so the final result will look something like this:
+Furthermore, each adapter has a fixed number of N bases (from 2 to 4) ligated to the 5' end, as described in [Taberlet et al., 2018](http://dx.doi.org/10.1093/oso/9780198767220.001.0001).  
+The final result will look something like this:
 ```
 >adapter01
 XNNacactgtg
