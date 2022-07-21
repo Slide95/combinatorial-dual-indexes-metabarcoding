@@ -96,7 +96,7 @@ rm *run*.fastq.gz
 
 ## Rename files
 Cutadapt does not have built-in functionality to rename multiple files at once, but you can use an external tool such as `mmv`.  
-Create a txt file (e.g. `patterns`), `fwdindex1-revindex1` etc. are the names of the adapter combinations and sampleA etc. are the corrisponding sample names:
+Create a txt file (e.g. `patterns`), `fwdindex1-revindex1` etc. are the names of the adapter combinations and `sampleA` etc. are the corrisponding sample names:
 ```
 fwdindex1-revindex1.[12].fastq.gz sampleA.#1.fastq.gz
 fwdindex1-revindex2.[12].fastq.gz sampleB.#1.fastq.gz
@@ -106,6 +106,8 @@ fwdindex1-revindex3.[12].fastq.gz sampleC.#1.fastq.gz
 ```
 mmv < patterns
 ```
+
+---
 
 # Importing in QIIME2
 ### Get absolute path of forward/reverse reads
@@ -117,7 +119,7 @@ ls -1 "$PWD/"*.2.fastq.gz > R2.txt
 ```
 find *.1.fastq.gz -printf "%.5f\n" > ids.txt
 ```
-Edit ids.txt accordingly if the sample names have different lengths.
+Edit `ids.txt` accordingly if the sample names have different lengths.
 ### Make manifest file
 ```
 paste ids.txt R1.txt R2.txt > man.tsv
@@ -189,7 +191,7 @@ qiime feature-table tabulate-seqs \
   --i-data rep-seqs.qza \
   --o-visualization rep-seqs.qzv
 ```
-#### Import ASVs table
+### Import ASVs table
 ```
 biom convert -i ashtab.tsv -o ashtab.biom --table-type="OTU table" --to-hdf5
 ```
